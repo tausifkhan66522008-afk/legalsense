@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Details - Legalsense</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#475569',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 border-b border-slate-200 shadow-sm bg-white/90 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="flex items-center space-x-2">
+                            <i data-lucide="scale" class="w-8 h-8 text-primary"></i>
+                            <span class="text-xl font-bold tracking-tight text-slate-900">Legalsense</span>
+                        </a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html"
+                            class="border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="listing.html"
+                            class="border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            All Sections
+                        </a>
+                        <a href="disclaimer.html"
+                            class="border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Disclaimer
+                        </a>
+                    </div>
+                </div>
+                <!-- Desktop Login Button -->
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <a href="login.html"
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        Login
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center sm:hidden">
+                    <a href="login.html"
+                        class="mr-4 inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-primary hover:bg-blue-700">
+                        Login
+                    </a>
+                    <button id="mobile-menu-btn" type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="sm:hidden hidden bg-white border-b border-slate-200" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html"
+                    class="border-transparent text-slate-500 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
+                <a href="listing.html"
+                    class="border-transparent text-slate-500 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">All
+                    Sections</a>
+                <a href="disclaimer.html"
+                    class="border-transparent text-slate-500 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Disclaimer</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex mb-8" aria-label="Breadcrumb">
+            <ol role="list" class="flex items-center space-x-4">
+                <li>
+                    <a href="index.html" class="text-slate-400 hover:text-slate-500">
+                        <i data-lucide="home" class="flex-shrink-0 h-5 w-5"></i>
+                        <span class="sr-only">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i data-lucide="chevron-right" class="flex-shrink-0 h-5 w-5 text-slate-300"></i>
+                        <a href="listing.html"
+                            class="ml-4 text-sm font-medium text-slate-500 hover:text-slate-700">Sections</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i data-lucide="chevron-right" class="flex-shrink-0 h-5 w-5 text-slate-300"></i>
+                        <span class="ml-4 text-sm font-medium text-slate-700" id="current-crumb">Details</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <!-- Not Found State -->
+        <div id="not-found" class="hidden text-center py-20">
+            <i data-lucide="file-warning" class="mx-auto h-16 w-16 text-slate-400"></i>
+            <h3 class="mt-2 text-lg font-medium text-slate-900">Section Not Found</h3>
+            <p class="mt-1 text-sm text-slate-500">The section you are looking for does not exist in our database.</p>
+            <div class="mt-6">
+                <a href="listing.html"
+                    class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-blue-700">
+                    Go back to Library
+                </a>
+            </div>
+        </div>
+
+        <!-- Detail Container -->
+        <div id="detail-container" class="bg-white shadow overflow-hidden sm:rounded-lg border border-slate-200">
+            <!-- Header -->
+            <div class="px-4 py-5 sm:px-6 border-b border-slate-200 bg-slate-50/50">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900" id="section-number">Section ...</h1>
+                        <p class="mt-1 max-w-2xl text-sm text-slate-500" id="section-chapter">Chapter ...</p>
+                    </div>
+                    <span
+                        class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
+                        id="section-category">
+                        Category
+                    </span>
+                </div>
+                <h2 class="mt-4 text-xl font-semibold text-slate-800 leading-snug" id="section-title">
+                    Loading Title...
+                </h2>
+            </div>
+
+            <!-- Content -->
+            <div class="px-4 py-5 sm:p-6 space-y-8">
+
+                <!-- Meaning -->
+                <section>
+                    <h3 class="text-lg leading-6 font-medium text-slate-900 flex items-center mb-3">
+                        <i data-lucide="book" class="w-5 h-5 mr-2 text-primary"></i> Simplified Meaning
+                    </h3>
+                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                        <p class="text-slate-700" id="section-meaning"></p>
+                    </div>
+                </section>
+
+                <!-- When it Applies -->
+                <section>
+                    <h3 class="text-lg leading-6 font-medium text-slate-900 flex items-center mb-3">
+                        <i data-lucide="list-checks" class="w-5 h-5 mr-2 text-primary"></i> When It Applies
+                    </h3>
+                    <ul class="space-y-2" id="section-applicability">
+                        <!-- JS renders list items -->
+                    </ul>
+                </section>
+
+                <!-- Example -->
+                <section>
+                    <h3 class="text-lg leading-6 font-medium text-slate-900 flex items-center mb-3">
+                        <i data-lucide="lightbulb" class="w-5 h-5 mr-2 text-yellow-500"></i> Real-life Example
+                    </h3>
+                    <div class="bg-yellow-50 rounded-lg p-4 border border-yellow-100 text-slate-700 italic"
+                        id="section-example">
+                    </div>
+                </section>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Punishment -->
+                    <section class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Punishment</h3>
+                        <p class="text-slate-900 font-medium" id="section-punishment"></p>
+                    </section>
+
+                    <!-- Nature -->
+                    <section class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Nature of Offence
+                        </h3>
+                        <p class="text-slate-900 font-medium" id="section-nature"></p>
+                    </section>
+                </div>
+
+                <!-- Related Sections -->
+                <section>
+                    <h3 class="text-sm font-semibold text-slate-500 mb-3">Related Sections</h3>
+                    <div class="flex flex-wrap" id="section-related">
+                        <!-- JS Links -->
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Disclaimer Footer in Card -->
+            <div class="px-4 py-4 bg-slate-100 border-t border-slate-200 sm:px-6">
+                <div class="flex items-start">
+                    <i data-lucide="alert-triangle" class="h-5 w-5 text-amber-500 mt-0.5 mr-3 flex-shrink-0"></i>
+                    <p class="text-sm text-slate-500">
+                        <strong>Disclaimer:</strong> This content is for educational purposes only and does not
+                        constitute legal advice. Laws may change. For authoritative legal counsel, please consult a
+                        qualified advocate.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-auto">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-base text-slate-400">
+                &copy; 2024 Legalsense. Educational purpose only. Not legal advice.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/detail.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

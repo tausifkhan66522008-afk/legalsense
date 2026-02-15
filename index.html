@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legalsense - Know Your IPC</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb', // Blue-600
+                        secondary: '#475569', // Slate-600
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="flex items-center space-x-2">
+                            <i data-lucide="scale" class="w-8 h-8 text-primary"></i>
+                            <span class="text-xl font-bold tracking-tight text-slate-900">Legalsense</span>
+                        </a>
+                    </div>
+                    <!-- Desktop Menu -->
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html"
+                            class="border-primary text-slate-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="listing.html"
+                            class="border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            All Sections
+                        </a>
+                        <a href="disclaimer.html"
+                            class="border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Disclaimer
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Desktop Login Button -->
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <a href="login.html"
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        Login / Sign Up
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <a href="login.html"
+                        class="mr-4 inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-primary hover:bg-blue-700">
+                        Login
+                    </a>
+                    <button id="mobile-menu-btn" type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i data-lucide="menu" class="block h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="sm:hidden hidden bg-white border-b border-slate-200" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html"
+                    class="bg-primary/10 border-l-4 border-primary text-primary block pl-3 pr-4 py-2 text-base font-medium">Home</a>
+                <a href="listing.html"
+                    class="border-transparent text-slate-500 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">All
+                    Sections</a>
+                <a href="disclaimer.html"
+                    class="border-transparent text-slate-500 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Disclaimer</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+
+        <!-- Hero Section -->
+        <div class="relative bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                    <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+                        fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                        <path d="M50 0H100L50 100H0L50 0Z" />
+                    </svg>
+
+                    <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                        <div class="sm:text-center lg:text-left">
+                            <h1 class="text-4xl tracking-tight font-extrabold text-slate-900 sm:text-5xl md:text-6xl">
+                                <span class="block xl:inline">Know Your Rights</span>
+                                <span class="block text-primary xl:inline">Understand the Law</span>
+                            </h1>
+                            <p
+                                class="mt-3 text-base text-slate-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                Simplifying the Indian Penal Code (IPC) for students, citizens, and everyone. Accurate,
+                                accessible, and easy to understand.
+                            </p>
+
+                            <!-- Search Box -->
+                            <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                                <form id="global-search-form" class="mt-3 sm:flex">
+                                    <label for="global-search-input" class="sr-only">Search IPC Section or
+                                        Keyword</label>
+                                    <input type="text" name="search" id="global-search-input"
+                                        class="appearance-none block w-full px-3 py-3 border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                                        placeholder="Search (e.g. '302' or 'Theft')">
+                                    <button type="submit"
+                                        class="mt-3 w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto">
+                                        Search
+                                    </button>
+                                </form>
+                                <p class="mt-2 text-xs text-slate-400">
+                                    Try searching for <a href="listing.html?search=302"
+                                        class="underline hover:text-slate-600">Section 302</a>, <a
+                                        href="listing.html?search=Theft"
+                                        class="underline hover:text-slate-600">Theft</a>, or <a
+                                        href="listing.html?search=Cheating"
+                                        class="underline hover:text-slate-600">Cheating</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-slate-100 flex items-center justify-center">
+                <!-- Placeholder for illustration -->
+                <div class="text-slate-300 flex flex-col items-center">
+                    <i data-lucide="book-open" class="w-24 h-24 mb-4"></i>
+                    <span>Educational Illustration</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="bg-slate-50 py-12 sm:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:text-center">
+                    <h2 class="text-base text-primary font-semibold tracking-wide uppercase">Categories</h2>
+                    <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                        Explore by Topic
+                    </p>
+                    <p class="mt-4 max-w-2xl text-xl text-slate-500 lg:mx-auto">
+                        Browse sections based on the type of offence.
+                    </p>
+                </div>
+
+                <div class="mt-10">
+                    <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                        <!-- Category 1 -->
+                        <a href="listing.html?category=Offences Against Body"
+                            class="group relative flex flex-col bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div
+                                class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4">
+                                <i data-lucide="user-x" class="w-6 h-6"></i>
+                            </div>
+                            <h3
+                                class="text-lg leading-6 font-medium text-slate-900 group-hover:text-primary transition-colors">
+                                Offences Against Body</h3>
+                            <p class="mt-2 text-base text-slate-500">
+                                Murder, Assault, Kidnapping, and other harms to the human body.
+                            </p>
+                        </a>
+
+                        <!-- Category 2 -->
+                        <a href="listing.html?category=Offences Against Property"
+                            class="group relative flex flex-col bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div
+                                class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4">
+                                <i data-lucide="home" class="w-6 h-6"></i>
+                            </div>
+                            <h3
+                                class="text-lg leading-6 font-medium text-slate-900 group-hover:text-primary transition-colors">
+                                Offences Against Property</h3>
+                            <p class="mt-2 text-base text-slate-500">
+                                Theft, Extortion, Robbery, Cheating, and Trespass.
+                            </p>
+                        </a>
+
+                        <!-- Category 3 -->
+                        <a href="listing.html?category=Offences Against the State"
+                            class="group relative flex flex-col bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div
+                                class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4">
+                                <i data-lucide="flag" class="w-6 h-6"></i>
+                            </div>
+                            <h3
+                                class="text-lg leading-6 font-medium text-slate-900 group-hover:text-primary transition-colors">
+                                Offences Against State</h3>
+                            <p class="mt-2 text-base text-slate-500">
+                                Sedition, Waging war against the Government.
+                            </p>
+                        </a>
+
+                        <!-- Category 4 -->
+                        <a href="listing.html?category=Public Tranquility"
+                            class="group relative flex flex-col bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div
+                                class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                            <h3
+                                class="text-lg leading-6 font-medium text-slate-900 group-hover:text-primary transition-colors">
+                                Public Tranquility</h3>
+                            <p class="mt-2 text-base text-slate-500">
+                                Unlawful assembly, Rioting, Promoting enmity between groups.
+                            </p>
+                        </a>
+
+                        <!-- Category 5 -->
+                        <a href="listing.html?category=Attempts to Commit Offences"
+                            class="group relative flex flex-col bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div
+                                class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4">
+                                <i data-lucide="alert-circle" class="w-6 h-6"></i>
+                            </div>
+                            <h3
+                                class="text-lg leading-6 font-medium text-slate-900 group-hover:text-primary transition-colors">
+                                Attempts to Commit Offences</h3>
+                            <p class="mt-2 text-base text-slate-500">
+                                Actions towards commission of offences where no specific provision is made.
+                            </p>
+                        </a>
+
+                        <!-- Category 6 -->
+                        <a href="listing.html"
+                            class="group relative flex flex-col bg-slate-100 p-6 rounded-lg border-2 border-dashed border-slate-300 hover:border-primary hover:bg-white transition-colors">
+                            <div
+                                class="flex items-center justify-center h-12 w-12 rounded-md bg-slate-200 text-slate-500 mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i data-lucide="grid" class="w-6 h-6"></i>
+                            </div>
+                            <h3
+                                class="text-lg leading-6 font-medium text-slate-900 group-hover:text-primary transition-colors">
+                                View All Categories</h3>
+                            <p class="mt-2 text-base text-slate-500">
+                                Browse the complete list of chapters and sections.
+                            </p>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+            <div class="flex justify-center space-x-6 md:order-2">
+                <a href="disclaimer.html" class="text-slate-400 hover:text-slate-500">
+                    Disclaimer
+                </a>
+                <a href="#" class="text-slate-400 hover:text-slate-500">
+                    Privacy Policy
+                </a>
+                <a href="#" class="text-slate-400 hover:text-slate-500">
+                    Contact
+                </a>
+            </div>
+            <div class="mt-8 md:mt-0 md:order-1">
+                <p class="text-center text-base text-slate-400">
+                    &copy; 2024 Legalsense. Educational purpose only. Not legal advice.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
