@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderCards(data) {
         listingContainer.innerHTML = '';
+        const isHinglish = localStorage.getItem('legalsense_lang') === 'hinglish';
 
         if (data.length === 0) {
             listingContainer.innerHTML = `
@@ -64,6 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
             card.href = `detail.html?section=${item.sectionNumber}`;
             card.className = 'group block bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-slate-100 overflow-hidden hover:-translate-y-1';
 
+            // Resolve Content based on Language
+            const title = isHinglish ? (item.title_hinglish || item.title) : item.title;
+            const meaning = isHinglish ? (item.meaning_hinglish || item.meaning) : item.meaning;
+            const offenceNature = isHinglish ? (item.offenceNature_hinglish || item.offenceNature) : item.offenceNature;
+
             card.innerHTML = `
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
@@ -73,10 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="text-xs text-slate-400">${item.chapter}</span>
                     </div>
                     <h3 class="text-lg font-semibold text-slate-900 group-hover:text-primary mb-2 line-clamp-2">
-                        ${item.title}
+                        ${title}
                     </h3>
                     <p class="text-sm text-slate-600 line-clamp-3 mb-4">
-                        ${item.meaning}
+                        ${meaning}
                     </p>
                     <div class="flex items-center text-xs text-slate-500 mt-auto">
                         <span class="bg-slate-100 px-2 py-1 rounded capitalize truncate">
@@ -85,7 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="bg-slate-50 px-6 py-3 border-t border-slate-100 flex justify-between items-center group-hover:bg-blue-50 transition-colors">
-                    <span class="text-xs font-medium text-slate-500 group-hover:text-blue-700">Read Details</span>
+                    <span class="text-xs font-medium text-slate-500 group-hover:text-blue-700">
+                        ${isHinglish ? 'Vistar mein padhein' : 'Read Details'}
+                    </span>
                     <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400 group-hover:text-blue-600"></i>
                 </div>
             `;
