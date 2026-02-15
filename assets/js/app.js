@@ -40,4 +40,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- Hinglish Toggle Logic ---
+    const langBtn = document.getElementById('lang-toggle');
+    const currentLang = localStorage.getItem('legalsense_lang') || 'en';
+
+    if (langBtn) {
+        // Set initial button text
+        langBtn.textContent = currentLang === 'en' ? '🇮🇳 Switch to Hinglish' : '🇺🇸 Switch to English';
+
+        langBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const newLang = currentLang === 'en' ? 'hinglish' : 'en';
+            localStorage.setItem('legalsense_lang', newLang);
+
+            // Show loading state
+            langBtn.textContent = 'Switching...';
+
+            // Reload to apply changes
+            window.location.reload();
+        });
+    }
 });
+
